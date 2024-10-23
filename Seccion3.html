@@ -4,40 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi primera web</title>
-    <link rel="stylesheet" href="estilo.css">
-<head>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
 
-    <body>
-        <header>
-            <h1>MY MUSIC FREE</h1>
-            <nav>
-                <ul>
-                    <li><a href="Seccion1.html">Rock</a></li>
-                    <li><a href="Seccion2.html">Pop</a></li>
-                    <li><a href="Seccion3.html">Electronic</a></li>
-                </ul>
-                 </nav>
-        </header>
-        <div>
-            <input type="text" placeholder="Buscar canciones...">
-            <button>Buscar</button>
-    
-            <input type="text" placeholder="Buscar artistas...">
-            <button>Buscar</button>
-        </div>
-        <section>
-            <h2>ELECTRONIC</h2>
-            <img src="Assets/img/highonlife.jpeg" alt="highonlifemartin">
-            <img src="Assets/img/myway.jpeg" alt="mywaycalvin">
-            <img src="Assets/img/stargazing.jpeg" alt="Stargazingkygo">
-            <img src="Assets/img/waitingfolove.jpeg" alt="Aviciiwaiting">
-            <p>Hola este es el texto descriptivo de la cancion</p>
-        <section>
-            <audio controls>
-                <source src="ruta-de-tu-cancion.mp3" type="audio/mpeg">
+        /* Estilos para el header */
+        header {
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-            </audio>
+        /* Estilos para los títulos */
+        h1, h2 {
+            margin: 10px 0;
+        }
 
-    
+        h1 {
+            font-size: 3em;
+            color: #333;
+        }
 
-    </body>
+        h2 {
+            font-size: 2em;
+            color: #666;
+        }
+
+        /* Estilos para el menú de navegación */
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Estilos para los inputs y botones */
+        div {
+            margin: 20px 0;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1em;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        /* Estilos para las imágenes */
+        section img {
+            max-width: 100%;
+            height: auto;
+            width: 200px; /* Ajuste del tamaño atractivo para las imágenes */
+            margin: 10px;
+            border-radius: 10px;
+        }
+
+        /* Estilos para el párrafo */
+        p {
+            font-size: 1.2em;
+            color: #555;
+            padding: 10px;
+        }
+
+        /* Estilos para el audio */
+        audio {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>MY MUSIC FREE</h1>
+        <nav>
+            <ul>
+                <li><a href="Seccion1.html">Rock</a></li>
+                <li><a href="Seccion2.html">Pop</a></li>
+                <li><a href="Seccion3.html">Electronic</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div>
+        <input type="text" placeholder="Buscar canciones...">
+        <button>Buscar</button>
+
+        <input type="text" placeholder="Buscar artistas...">
+        <button>Buscar</button>
+    </div>
+
+    <section>
+        <h2>ELECTRONIC</h2>
+        <img src="Assets/img/highonlife.jpeg" alt="highonlifemartin">
+        <img src="Assets/img/myway.jpeg" alt="mywaycalvin">
+        <img src="Assets/img/stargazing.jpeg" alt="Stargazingkygo">
+        <img src="Assets/img/waitingfolove.jpeg" alt="Aviciiwaiting">
+        <p>Hola, este es el texto descriptivo de la canción.</p>
+
+        <audio controls>
+            <source src="ruta-de-tu-cancion.mp3" type="audio/mpeg">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </section>
+
+</body>
+</html>
