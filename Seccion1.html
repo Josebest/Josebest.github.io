@@ -116,27 +116,54 @@
         </nav>
     </header>
 
-    <div>
-        <input type="text" placeholder="Buscar canciones...">
-        <button>Buscar</button>
 
-        <input type="text" placeholder="Buscar artistas...">
-        <button>Buscar</button>
-    </div>
 
-    <section>
-        <h2>ROCK</h2>
-        <img src="Assets/img/Sweetchild.jpeg" alt="gunsandrousxd">
-        <img src="Assets/img/aerosmtith.jpeg" alt="armageddonaresmous">
-        <img src="Assets/img/bedoffroses.jpeg" alt="Camaerosa">
-        <img src="Assets/img/bohemian.jpeg" alt="elfreddybohemian">
-        <p>Hola, este es el texto descriptivo de la canción.</p>
+    <h2>ROCK</h2>
+    <img src="Assets/img/Sweetchild.jpeg" alt="Guns N' Roses">
+    <img src="Assets/img/aerosmtith.jpeg" alt="Aerosmith">
+    <img src="Assets/img/bedoffroses.jpeg" alt="Bon Jovi">
+    <img src="Assets/img/bohemian.jpeg" alt="Queen">
+    <p id="song-title">Hola, este es el texto descriptivo de la canción.</p>
 
-        <audio controls>
-            <source src="ruta-de-tu-cancion.mp3" type="audio/mpeg">
-            Tu navegador no soporta el elemento de audio.
-        </audio>
-    </section>
+    <audio id="audio-player" controls>
+        <source src="uploads/sweetchildomine.mp3" type="audio/mpeg">
+        
+    </audio>
+    <br>
+    <button id="next-song">Siguiente Canción</button>
+</section>
 
+<script>
+    // Lista de canciones
+    const songs = [
+        { title: "Sweet Child O' Mine-Guns N Roses", src: "uploads/sweetchildomine.mp3" },
+        { title: "I Don't Want to Miss a Thing-Aerosmith", src: "uploads/idontwanttomissathing.mp3" },
+        { title: "Bed of Roses-Bon Jovi", src: "uploads/bedofroses.mp3" },
+        { title: "Bohemian Rhapsody-Queen", src: "uploads/bohemian.mp3" }
+    ];
+
+    // Referencias a elementos del DOM
+    const audioPlayer = document.getElementById("audio-player");
+    const nextSongButton = document.getElementById("next-song");
+    const songTitleElement = document.getElementById("song-title");
+
+    // Índice actual
+    let currentIndex = 0;
+
+    // Función para cambiar canción
+    const changeSong = () => {
+        currentIndex = (currentIndex + 1) % songs.length; // Cambia al siguiente y vuelve al inicio si es el último
+        const nextSong = songs[currentIndex];
+        audioPlayer.src = nextSong.src; // Cambia la fuente del reproductor
+        songTitleElement.textContent = `Reproduciendo: ${nextSong.title}`; // Actualiza el título
+        audioPlayer.play(); // Inicia reproducción automática
+    };
+
+    // Asignar evento al botón
+    nextSongButton.addEventListener("click", changeSong);
+
+    // Establecer el título inicial
+    songTitleElement.textContent = `Reproduciendo: ${songs[currentIndex].title}`;
+</script>
 </body>
 </html>
