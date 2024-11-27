@@ -116,13 +116,7 @@
         </nav>
     </header>
 
-    <div>
-        <input type="text" placeholder="Buscar canciones...">
-        <button>Buscar</button>
-
-        <input type="text" placeholder="Buscar artistas...">
-        <button>Buscar</button>
-    </div>
+  
 
     <section>
         <h2>ELECTRONIC</h2>
@@ -130,13 +124,48 @@
         <img src="Assets/img/myway.jpeg" alt="mywaycalvin">
         <img src="Assets/img/stargazing.jpeg" alt="Stargazingkygo">
         <img src="Assets/img/waitingfolove.jpeg" alt="Aviciiwaiting">
-        <p>Hola, este es el texto descriptivo de la canción.</p>
+        <p id="song-title">Hola, este es el texto descriptivo de la canción.</p>
 
-        <audio controls>
-            <source src="ruta-de-tu-cancion.mp3" type="audio/mpeg">
-            Tu navegador no soporta el elemento de audio.
+        <audio id="audio-player" controls>
+            <source src="uploads/high.mp3" type="audio/mpeg">
+            
         </audio>
+        <br>
+        <button id="next-song">Siguiente Canción</button>
     </section>
 
+    <script>
+        // Lista de canciones
+        const songs = [
+            { title: "High on life-Martin Garrix", src: "uploads/high.mp3" },
+            { title: "My Way-Calvin Harris", src: "uploads/myway.mp3" },
+            { title: "Stargazing-Kygo", src: "uploads/stargazing.mp3" },
+            { title: "Waiting for love-Avicii", src: "uploads/waiting.mp3" }
+        ];
+    
+        // Referencias a elementos del DOM
+        const audioPlayer = document.getElementById("audio-player");
+        const nextSongButton = document.getElementById("next-song");
+        const songTitleElement = document.getElementById("song-title");
+    
+        // Índice actual
+        let currentIndex = 0;
+    
+        // Función para cambiar canción
+        const changeSong = () => {
+            currentIndex = (currentIndex + 1) % songs.length; // Cambia al siguiente y vuelve al inicio si es el último
+            const nextSong = songs[currentIndex];
+            audioPlayer.src = nextSong.src; // Cambia la fuente del reproductor
+            songTitleElement.textContent = `Reproduciendo: ${nextSong.title}`; // Actualiza el título
+            audioPlayer.play(); // Inicia reproducción automática
+        };
+    
+        // Asignar evento al botón
+        nextSongButton.addEventListener("click", changeSong);
+    
+        // Establecer el título inicial
+        songTitleElement.textContent = `Reproduciendo: ${songs[currentIndex].title}`;
+    </script>
+    
 </body>
 </html>
